@@ -43,6 +43,9 @@ setTimeout(() => {
   <q-slide-transition>
     <div v-if="showOptions" class="options h-screen">
       <h2 class="text-h5 q-my-md">What are you in the mood for?</h2>
+      <div>
+        <p v-if="route.params.table">Table Number: {{ route.params.table }}</p>
+      </div>
       <div class="q-mt-lg">
         <div>
           <img
