@@ -3,7 +3,7 @@ import WelcomeView from '@/views/WelcomeView.vue'
 
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory("/Home/"),
   routes: [
     {
       path: '/:table?',
