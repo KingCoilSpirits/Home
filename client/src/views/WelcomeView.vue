@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, ref} from 'vue';
+import {onMounted, ref, watch} from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
 const route = useRoute();
@@ -15,6 +15,16 @@ onMounted(() => {
     console.log("No table number provided");
   }
 });
+
+watch(
+    () => route.params.table,
+    (newTableNumber) => {
+      tableNumber.value = getTableNumber(newTableNumber);
+    }
+);
+function getTableNumber(table: string | string[]): string {
+  return Array.isArray(table) ? table[0] : table || '';
+}
 // Simulate a welcome animation and then show options
 setTimeout(() => {
   showOptions.value = true;
