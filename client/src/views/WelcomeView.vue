@@ -1,10 +1,20 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
+import {onMounted, ref} from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
+const route = useRoute();
 const router = useRouter();
 const showOptions = ref(false);
+const tableNumber = ref('');
 
+
+onMounted(() => {
+  if (route.params.table) {
+    console.log("Table number:", route.params.table);
+  } else {
+    console.log("No table number provided");
+  }
+});
 // Simulate a welcome animation and then show options
 setTimeout(() => {
   showOptions.value = true;
