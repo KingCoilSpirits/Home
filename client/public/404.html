@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=/Home/#" />
+    <script>
+        (function() {
+            // Get the current path after "/Home/"
+            var path = window.location.pathname.replace("/Home/", "");
+
+            // Redirect to the same path under the hash mode
+            window.location.replace("/Home/#/" + path);
+        })();
+    </script>
+    <title>Redirecting...</title>
+</head>
+<body>
+<p>If you are not redirected, <a href="/Home/#/">click here</a>.</p>
+</body>
+</html>
