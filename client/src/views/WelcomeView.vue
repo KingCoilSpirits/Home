@@ -11,15 +11,6 @@ const router = useRouter();
 const showOptions = ref(false);
 const tableNumber = ref('');
 
-
-onMounted(() => {
-  if (route.params.table) {
-    console.log("Table number:", route.params.table);
-  } else {
-    console.log("No table number provided");
-  }
-});
-
 watch(
     () => route.params.table,
     (newTableNumber) => {
@@ -27,16 +18,17 @@ watch(
     }
 );
 
-const handleOrderClick = (restaurant: string, tableNumber: keyof TableUrls) => {
+const handleOrderClick = (restaurant: string, tableNumber: string) => {
+
   switch (restaurant) {
     case 'ogzaza':
-      const ogUrl = `${ogBaseURL}${tableNumber}`;
-      router.push(ogUrl);
-      break;
+      const ogUrl = `${ogBaseURL}${route.params.table}`;
+      window.location.href = ogUrl;      break;
     case 'kingcoil':
-      const kcUrl = tableUrls[tableNumber];
+      const kcUrl = tableUrls[String(route.params.table)];
+
       if (kcUrl) {
-        router.push(kcUrl);
+        window.location.href = kcUrl;
       } else {
         console.error('Invalid table number for King Coil');
       }
@@ -45,8 +37,9 @@ const handleOrderClick = (restaurant: string, tableNumber: keyof TableUrls) => {
       console.error('Invalid restaurant selection');
   }
 };
+// WOW what a great simple url toast uses
 const ogBaseURL = 'https://order.toasttab.com/order-and-pay/og-zaza-st-paul-550-vandalia-st/'
-// const kcBaseURL = 'https://cocktail-room.square.site/s/order?location=11ee3ab1d843fa70b2b23cecef6d5b2a&customer_seat_id=11efd5fba1e3d0d2a2f8f6c344c7d768'
+// WTF is square's deal?!?!? what an annoying way to handle urls
 const tableUrls: TableUrls = {
   "111": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889e7x0juilbsnimqfj3148",
   "112": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889e7x0kbzypm27h49j53e0",
@@ -104,7 +97,7 @@ const tableUrls: TableUrls = {
 function getTableNumber(table: string | string[]): string {
   return Array.isArray(table) ? table[0] : table || '';
 }
-// Simulate a welcome animation and then show options
+
 setTimeout(() => {
   showOptions.value = true;
 }, 2000);
@@ -132,9 +125,6 @@ setTimeout(() => {
   <q-slide-transition>
     <div v-if="showOptions" class="options h-screen">
       <h2 class="text-h5 q-my-md">What are you in the mood for?</h2>
-      <div>
-        <p v-if="route.params.table">Table Number: {{ route.params.table }}</p>
-      </div>
       <div class="q-mt-lg">
         <div>
           <img
@@ -182,27 +172,27 @@ setTimeout(() => {
 }
 
 .logo {
-  max-width: 150px; /* Adjust this value for desired size */
+  max-width: 150px;
   max-height: 150px;
   width: auto;
   height: auto;
   background-color: transparent;
-  display: block; /* Ensures proper centering */
-  margin: auto; /* Centers logos inside buttons */
+  display: block;
+  margin: auto;
 }
 .KCLogo {
   max-width: 300px;
   width: auto;
   height: auto;
   background-color: white;
-  display: block; /* Ensures proper centering */
-  margin: auto; /* Centers logos inside buttons */
+  display: block;
+  margin: auto;
   padding: 10px;
   border-radius: 2%;
 }
 .stripe {
   width: 100%;
-  height: 50px; /* Adjust the height as needed */
+  height: 50px;
   background-image: url('@/assets/pattern-stripe.png');
   background-repeat: repeat-x;
   background-size: contain;
