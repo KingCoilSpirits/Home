@@ -37,7 +37,7 @@ const handleOrderClick = (restaurant: string, tableNumber: string) => {
       console.error('Invalid restaurant selection');
   }
 };
-// WOW what a great simple url toast uses
+// WOW, what a great simple url toast uses
 const ogBaseURL = 'https://order.toasttab.com/order-and-pay/og-zaza-st-paul-550-vandalia-st/'
 // WTF is square's deal?!?!? what an annoying way to handle urls
 const tableUrls: TableUrls = {
@@ -161,7 +161,13 @@ setTimeout(() => {
 <style scoped>
 .welcome-animation {
   animation: fadeIn 3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -180,6 +186,7 @@ setTimeout(() => {
   display: block;
   margin: auto;
 }
+
 .KCLogo {
   max-width: 300px;
   width: auto;
@@ -190,6 +197,18 @@ setTimeout(() => {
   padding: 10px;
   border-radius: 2%;
 }
+
+@media (max-width: 600px) {
+  .logo {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .KCLogo {
+    max-width: 200px;
+  }
+}
+
 .stripe {
   width: 100%;
   height: 50px;
@@ -197,13 +216,16 @@ setTimeout(() => {
   background-repeat: repeat-x;
   background-size: contain;
 }
+
 .raised-image {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.3s ease-in-out;
 }
+
 .raised-image:hover {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
 }
+
 .stripe-container {
   display: flex;
   justify-content: center;
