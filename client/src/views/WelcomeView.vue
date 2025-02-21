@@ -124,9 +124,10 @@ setTimeout(() => {
   <!-- Options After Animation -->
   <q-slide-transition>
     <div v-if="showOptions" class="options h-screen">
-      <h2 class="text-h5 q-my-md">What are you in the mood for?</h2>
       <div class="q-mt-lg">
         <div>
+          <h2 class="text-h5 q-my-md">Order Food</h2>
+
           <img
               src="@/assets/OGZaZaLogo.png"
               alt="OG ZaZa Logo"
@@ -140,6 +141,7 @@ setTimeout(() => {
         </div>
 
         <div>
+          <h2 class="text-h5 q-my-md">Order Drinks</h2>
           <img
               src="@/assets/KingCoilLogoOrange.png"
               alt="King Coil Spirits Logo"
@@ -160,12 +162,11 @@ setTimeout(() => {
 
 <style scoped>
 .welcome-animation {
-  animation: fadeIn 3s ease-in-out;
+  animation: fadeIn 1s ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  overflow: hidden;
+  padding: 16px;
 }
 
 @keyframes fadeIn {
@@ -178,9 +179,7 @@ setTimeout(() => {
 }
 
 .logo {
-  max-width: 150px;
-  max-height: 150px;
-  width: auto;
+  max-width: 80%;
   height: auto;
   background-color: transparent;
   display: block;
