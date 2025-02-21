@@ -106,7 +106,7 @@ setTimeout(() => {
 
 </script>
 <template>
-  <div id="app">
+  <div id="app" class="w-screen">
 
   <div class="stripe-container px-0 py-0 mx-0 mt-20">
     <div class="stripe w-screen"></div>
@@ -133,7 +133,7 @@ setTimeout(() => {
           <img
               src="@/assets/OrderFood.png"
               alt="Click to order OG ZaZa Pizza"
-              class="px-0 py-0 mx-0 my-0 welcome-logo"
+              class="px-0 py-0 mx-0 my-0 event-logo"
               @click="handleOrderClick('ogzaza', tableNumber)"
           />
           <img
@@ -151,8 +151,8 @@ setTimeout(() => {
         <div>
           <img
               src="@/assets/orderCocktails.png"
-              alt="Click to order a King Coil cocktail"
-              class="px-0 py-0 welcome-logo"
+              alt="Click to order a King Coil Spirits cocktail"
+              class="px-0 py-0 event-logo"
               @click="handleOrderClick('kingcoil', tableNumber)"
           />
           <img
@@ -226,6 +226,9 @@ setTimeout(() => {
   margin: 0 auto;
   padding: 0;
 }
+.KCLogo {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+}
 
 .options > div {
   display: flex;
@@ -246,9 +249,9 @@ setTimeout(() => {
     max-width: 80%;
     max-height: 80%;
   }
-  .welcome-logo, .event-logo {
-    max-width: 70%;
-    max-height: 70%;
+  .event-logo {
+    min-width: 60%;
+    min-height: 60%;
   }
   .stripe {
     min-width: 100%;
@@ -284,23 +287,24 @@ setTimeout(() => {
   height: auto;
   background-color: transparent;
   display: block;
-  margin: 20px auto 20px;
+  margin: 20px auto 0;
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
 }
 
 html, body {
   background-color: #f0f0f0;
   margin: 0;
   padding: 0;
-  height: 100%;
-  width: 100%;
+  height: 100vw;
+  width: 100vh;
+  overflow: hidden;
 }
 
 #app {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
+  align-items: center;
 }
 
 </style>
