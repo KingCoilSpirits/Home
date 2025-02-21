@@ -284,7 +284,7 @@ setTimeout(() => {
   height: auto;
   background-color: transparent;
   display: block;
-  margin: auto auto 20px;
+  margin: 20px auto 20px;
 }
 
 html, body {
