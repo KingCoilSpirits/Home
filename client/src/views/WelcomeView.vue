@@ -93,7 +93,9 @@ const tableUrls: TableUrls = {
   "341": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889ednxzxe8ponxf6fqvgt7",
   "342": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889edny0ofi6kbgqke2zu1n"
 };
-
+const handleEventClick = () => {
+  window.location.href = 'https://www.kingcoilspirits.com/event-space'
+};
 function getTableNumber(table: string | string[]): string {
   return Array.isArray(table) ? table[0] : table || '';
 }
@@ -103,12 +105,14 @@ setTimeout(() => {
 }, 2000);
 
 </script>
-<template class="h-screen">
-  <div class="stripe-container">
+<template>
+  <div id="app">
+
+  <div class="stripe-container px-0 py-0 mx-0 mt-20">
     <div class="stripe w-screen"></div>
     <div class="stripe w-screen"></div>
   </div>
-  <div class="q-pa-md flex flex-center h-screen">
+  <div class="flex flex-center">
 <div class="text-center">
   <!-- Welcome Animation -->
   <q-slide-transition>
@@ -116,18 +120,22 @@ setTimeout(() => {
       <img
           src="@/assets/KingCoilLogoOrange.png"
           alt="King Coil Spirits Logo"
-          class="q-my-md"
-      />      <h1 class="text-h4 text-bold">Welcome to King Coil Spirits!</h1>
+          class="logo"
+      />
     </div>
   </q-slide-transition>
 
   <!-- Options After Animation -->
   <q-slide-transition>
-    <div v-if="showOptions" class="options h-screen">
-      <div class="q-mt-lg">
-        <div>
-          <h2 class="text-h5 q-my-md">Order Food</h2>
-
+    <div v-if="showOptions" class="options">
+      <div class="flex flex-center">
+        <div class="py-0 px-0 mx-0 my-0">
+          <img
+              src="@/assets/OrderFood.png"
+              alt="Click to order OG ZaZa Pizza"
+              class="px-0 py-0 mx-0 my-0 welcome-logo"
+              @click="handleOrderClick('ogzaza', tableNumber)"
+          />
           <img
               src="@/assets/OGZaZaLogo.png"
               alt="OG ZaZa Logo"
@@ -141,11 +149,16 @@ setTimeout(() => {
         </div>
 
         <div>
-          <h2 class="text-h5 q-my-md">Order Drinks</h2>
+          <img
+              src="@/assets/orderCocktails.png"
+              alt="Click to order a King Coil cocktail"
+              class="px-0 py-0 welcome-logo"
+              @click="handleOrderClick('kingcoil', tableNumber)"
+          />
           <img
               src="@/assets/KingCoilLogoOrange.png"
               alt="King Coil Spirits Logo"
-              class="KCLogo raised-image"
+              class="KCLogo"
               @click="handleOrderClick('kingcoil', tableNumber)"
           />
           <q-tooltip
@@ -154,10 +167,27 @@ setTimeout(() => {
           >Click to order King Coil Spirits</q-tooltip>
         </div>
       </div>
+      <div>
+        <img
+            src="@/assets/EventSpace.png"
+            alt="Book your event with us!"
+            class="event-logo"
+            @click="handleEventClick"
+        />
+        <q-tooltip
+            anchor="center right"
+            self="center middle"
+        >Click to book your event with us!</q-tooltip>
+      </div>
     </div>
   </q-slide-transition>
 </div>
 </div>
+  <div class="stripe-container bottom-stripe px-0 py-0 mx-0 mt-20">
+    <div class="stripe w-screen"></div>
+    <div class="stripe w-screen"></div>
+  </div>
+  </div>
 </template>
 
 <style scoped>
@@ -178,33 +208,53 @@ setTimeout(() => {
   }
 }
 
-.logo {
+.welcome-logo {
+  max-width: 80%;
+  height: auto;
+  max-height: 100vh;
+  background-color: transparent;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.logo, .KCLogo {
   max-width: 80%;
   height: auto;
   background-color: transparent;
   display: block;
-  margin: auto;
+  margin: 0 auto;
+  padding: 0;
 }
 
-.KCLogo {
-  max-width: 300px;
-  width: auto;
-  height: auto;
-  background-color: white;
-  display: block;
-  margin: auto;
-  padding: 10px;
-  border-radius: 2%;
+.options > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
 @media (max-width: 600px) {
-  .logo {
-    max-width: 100px;
-    max-height: 100px;
+  .logo, .KCLogo {
+    max-width: 80%;
+    max-height: 80%;
   }
-
-  .KCLogo {
-    max-width: 200px;
+  .welcome-logo, .event-logo {
+    max-width: 70%;
+    max-height: 70%;
+  }
+  .stripe {
+    min-width: 100%;
+  }
+  .stripe-container {
+    min-width: 100%;
   }
 }
 
@@ -214,19 +264,43 @@ setTimeout(() => {
   background-image: url('@/assets/pattern-stripe.png');
   background-repeat: repeat-x;
   background-size: contain;
+  padding: 0;
+  margin: 0;
 }
-
-.raised-image {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s ease-in-out;
-}
-
-.raised-image:hover {
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.08);
+.bottom-stripe {
+  width: 100%;
 }
 
 .stripe-container {
   display: flex;
   justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
+
+.event-logo {
+  max-width: 100%;
+  height: auto;
+  background-color: transparent;
+  display: block;
+  margin: auto auto 20px;
+}
+
+html, body {
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+
 </style>
