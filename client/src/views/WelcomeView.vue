@@ -91,7 +91,23 @@ const tableUrls: TableUrls = {
   "332": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889ed0bq5jv0i8act3aarnj",
   "333": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889ed0bqbuxwrkcggioe4xr",
   "341": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889ednxzxe8ponxf6fqvgt7",
-  "342": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889edny0ofi6kbgqke2zu1n"
+  "342": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:12889edny0ofi6kbgqke2zu1n",
+  "401": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrl13q5bbwcabnwx1s",
+  "402": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrlgucza0s16kg5pw0",
+  "403": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrlpfn4h316fx4ixjk",
+  "404": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrluntnnce83d0mjww",
+  "405": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrlznc08y4t9yhziog",
+  "406": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrm4jlqutndpy7j2hc",
+  "407": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrmawv5hyccf7zfn80",
+  "408": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrmixlhxdxixmom828",
+  "409": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrmntuyqyzqt0z5ys0",
+  "410": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozrmssaaaneyim3qn2o",
+  "411": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozs19jgtorv26fsbwpc",
+  "412": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozs1mggzeurf5jzy634",
+  "413": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozs1sutn0j29zd83wb4",
+  "414": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozs23hmreq1o9ejtmj4",
+  "415": "https://square.online/app/store/api/seat/2fbmzh:19dgeo6tu57r:128a1gozs2d7zwzq47gppgz0w",
+
 };
 const handleEventClick = () => {
   window.location.href = 'https://www.kingcoilspirits.com/event-space'
